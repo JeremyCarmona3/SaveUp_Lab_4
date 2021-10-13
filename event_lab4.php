@@ -29,15 +29,11 @@ class Event{
         */
         
         if (strtotime($startTime) == NULL) {
-            echo "Start Time is NULL" ."\r\n";
+            echo $name . " Start Time is NULL" ."\r\n";
         }
 
-        else if (strtotime($endTime) == NULL) {
-            echo "End Time is NULL" ."\r\n";
-        }
-
-        else { 
-            echo "Time is not NULL" ."\r\n";
+        if (strtotime($endTime) == NULL) {
+            echo $name . " End Time is NULL" ."\r\n";
         }
 
         
