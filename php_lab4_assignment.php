@@ -37,8 +37,7 @@ to make sure sorted sorrectly.
 */
 
 foreach($events as $x) {
-
-
+        echo $x;
 }
 
 //Array that save all events that you will attend
