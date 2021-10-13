@@ -22,7 +22,7 @@ $events = array(
     new Event("AJAX", "11:40 AM Jan 10 2021", 
             "12:00 PM Jan 10 2021"),
     new Event("REACT", "2:35 PM Jan 10 2021", 
-            "3:10PM Jan 10 2021")       
+            "3:10PM Jan 10 2021") 
 );
 
 #Sort events array using endtime asscending order
@@ -46,16 +46,21 @@ $go_to_events = array($events[0]);
 
 //What is the purpose of this statement?
 //1 point for expalnation. Put you explanation as comment
-//Your explanation: needs a place to store true or false vaues
-$cur_event = $events[0];
+//Your explanation:
+$cur_event = ($events[0]);
 
 //3 points for implementaion of this function
 for ($i = 0; $i < count($events); $i++) {
     //Decide if you can attend an event
-    $cur_event = Event::isConflict($events[$i], $events[$i++]);
-    if ($cur_event == true) {
-            //echo $events[$i]->getName() + $cur_event;
-        $go_to_events[$i] = getName($events[$i]);
+    $go_to_events = [$events[0]];
+    $cur_event = ($events[0]);
+
+    if (Event::isConflict($cur_event, $events[$i]) == false) {
+        array_push($go_to_events);
+        print_r($go_to_events);
+    }
+    else {
+        throw new Exception("Conflicting Start and End Time");
     }
 }
 
