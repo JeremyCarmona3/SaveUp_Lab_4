@@ -22,13 +22,14 @@ $events = array(
     new Event("AJAX", "11:40 AM Jan 10 2021", 
             "12:00 PM Jan 10 2021"),
     new Event("REACT", "2:35 PM Jan 10 2021", 
-            "3:10PM Jan 10 2021")
+            "3:10PM Jan 10 2021")       
 );
 
 #Sort events array using endtime asscending order
 //1 point for usort and print sorted array
 usort($events, function($x, $y) {
 	//Implement the function
+    return $x->getEndTime() < $y->getEndTime() ? -1: 1;
 });
 
 /* 
@@ -37,8 +38,7 @@ to make sure sorted sorrectly.
 */
 
 foreach($events as $x) {
-
-
+    echo $x->getName() . " : " . $x->getEndTime() . "\r\n";
 }
 
 //Array that save all events that you will attend
@@ -49,11 +49,10 @@ $go_to_events = array($events[0]);
 //Your explanation:
 $cur_event = $events[0];
 
-
 //3 points for implementaion of this function
 for ($i = 1; $i < count($events); $i++) {
     //Decide if you can attend an event
-
+    
 }
 
 
