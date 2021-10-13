@@ -34,8 +34,7 @@ class Event{
             echo $name . " End Time is NULL" ."\r\n";
         }
         else {
-            echo $name . " Start Time is not NULL" ."\r\n";
-            echo $name . " End Time is not NULL" ."\r\n";
+            echo $name . " Time is not NULL" ."\r\n";
         }
 
         if (strtotime($startTime) < strtotime($endTime)) {

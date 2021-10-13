@@ -64,4 +64,3 @@ for ($i = 0; $i < count($events); $i++) {
 foreach($go_to_events as $x) {
     echo ($x->getName() ."\r\n");
 }
-
