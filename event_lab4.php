@@ -27,16 +27,22 @@ class Event{
             new Exception("Conflicting start and end time");
         */
         
-        if (strtotime($startTime) == NULL) {
-            echo $name . " Start Time is NULL" ."\r\n";
+        if ($startTime = NULL) {
+            echo "Start Time is NULL";
         }
 
-        if (strtotime($endTime) == NULL) {
-            echo $name . " End Time is NULL" ."\r\n";
+        else if ($endTime = NULL) {
+            echo "End Time is NULL";
+        }
+
+        else { 
+            echo "Time is not NULL";
         }
 
         
     }
+
+    foreach ($)
 
     public function getName() { return $this->name;}
     public function setName($name) {$this->name = $name;}
