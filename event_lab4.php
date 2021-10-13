@@ -28,16 +28,16 @@ class Event{
             new Exception("Conflicting start and end time");
         */
         
-        if ($startTime = NULL) {
-            echo "Start Time is NULL";
+        if (strtotime($startTime) == NULL) {
+            echo "Start Time is NULL" ."\r\n";
         }
 
-        else if ($endTime = NULL) {
-            echo "End Time is NULL";
+        else if (strtotime($endTime) == NULL) {
+            echo "End Time is NULL" ."\r\n";
         }
 
         else { 
-            echo "Time is not NULL";
+            echo "Time is not NULL" ."\r\n";
         }
 
         
