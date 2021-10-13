@@ -38,7 +38,7 @@ to make sure sorted sorrectly.
 */
 
 foreach($events as $x) {
-    echo $x->getName() . " : " . $x->getEndTime() . "\r\n";
+   // echo $x->getName() . " : " . $x->getEndTime() . "\r\n";
 }
 
 //Array that save all events that you will attend
@@ -46,13 +46,17 @@ $go_to_events = array($events[0]);
 
 //What is the purpose of this statement?
 //1 point for expalnation. Put you explanation as comment
-//Your explanation:
+//Your explanation: needs a place to store true or false vaues
 $cur_event = $events[0];
 
 //3 points for implementaion of this function
-for ($i = 1; $i < count($events); $i++) {
+for ($i = 0; $i < count($events); $i++) {
     //Decide if you can attend an event
-    
+    $cur_event = Event::isConflict($events[$i], $events[$i++]);
+    if ($cur_event == true) {
+            //echo $events[$i]->getName() + $cur_event;
+        $go_to_events[$i] = getName($events[$i]);
+    }
 }
 
 
