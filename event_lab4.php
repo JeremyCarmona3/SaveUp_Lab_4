@@ -38,18 +38,13 @@ class Event{
     }
 
     public function getName() { return $this->name;}
-    public function setName($name) {$this->name = $name; echo $name;}
+    public function setName($name) {$this->name = $name;}
 
     public function getStart() { return $this->startTime;}
-    public function setStart($startTime) {
-        $this-> startTime = $startTime;
-    }
+    public function setStart($startTime) {$this-> startTime = $startTime;}
 
     public function getEnd() { return $this->endTime;}
-    public function setEnd($endTime) {
-     
-        $this-> endTime = $endTime;
-    }
+    public function setEnd($endTime) {$this-> endTime = $endTime;}
 
     //Create setter and getter functions for startTime
     //and endTime: 0.5 point
