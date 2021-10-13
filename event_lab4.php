@@ -28,21 +28,12 @@ class Event{
             new Exception("Conflicting start and end time");
         */
 
-        if (strtotime($startTime) == NULL) {
-            echo $name . " Start Time is NULL" ."\r\n";
-        }
-        if (strtotime($endTime) == NULL) {
-            echo $name . " End Time is NULL" ."\r\n";
-        }
-        else {
-            echo $name . " Time is not NULL" ."\r\n";
+        if ((strtotime($startTime) == NULL) || (strtotime($endTime) == NULL)) {
+            throw new Exception("Invalid datetime format");
         }
 
-        if (strtotime($startTime) < strtotime($endTime)) {
-            echo $name . " Start Time is smaller than End Time" ."\r\n";
-        }
-        else {
-            echo $name . " Start Time is NOT smaller than End Time" ."\r\n";
+        if (strtotime($startTime) > strtotime($endTime)) {
+            throw new Exception(("Start Time is smaller than End Time"));
         }
     }
 
@@ -65,7 +56,7 @@ class Event{
             order.
             return true is conflict, else return false
         */
-        if ($event2->getEndTime() > $event1->getEndTime() && $event2->getStartTime() < $event1->getEndTime()) {
+        if ($event2->getEndTime() < $event1->getStartTime() && $event1->getEndTime() < $event2->getStartTime()) {
             return true;
         }
         else {
