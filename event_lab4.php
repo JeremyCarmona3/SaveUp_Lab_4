@@ -5,7 +5,6 @@ class Event{
     private $startTime; //of datetime type
     private $endTime; //of datetime type
 
-
     public function __construct(
             $name, /*String*/
             $startTime /*String*/, 
