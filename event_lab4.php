@@ -61,7 +61,7 @@ class Event{
             order.
             return true is conflict, else return false
         */
-        if ($event2->getEndTime() < $event1->getStartTime() && $event1->getEndTime() < $event2->getStartTime()) {
+        if ($event2->getEndTime() > $event1->getStartTime()) {
             return true;
         }
         else {

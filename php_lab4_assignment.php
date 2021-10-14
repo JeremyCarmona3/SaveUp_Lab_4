@@ -13,7 +13,7 @@ $events = array(
             "12:33 PM Jan 10 2021"),
     new Event("PHP", "9:25 AM Jan 10 2021", 
             "10:33 AM Jan 10 2021"),
-    new Event("JQUERY", "3:35 PM Jan 10 2021",
+    new Event("JQUERY", "3:35 PM Jan 10 2021", // no conflict
               "4:10PM Jan 10 2021"),
     new Event("Docker", "1:30 PM Jan 10 2021", 
             "2:33 PM Jan 10 2021"),
@@ -38,7 +38,7 @@ to make sure sorted sorrectly.
 */
 
 foreach($events as $x) {
-   // echo $x->getName() . " : " . $x->getEndTime() . "\r\n";
+        echo $x->getName() . " : " . $x->getEndTime() . "\r\n";
 }
 
 //Array that save all events that you will attend
@@ -50,17 +50,15 @@ $go_to_events = array($events[0]);
 $cur_event = ($events[0]);
 
 //3 points for implementaion of this function
-for ($i = 0; $i < count($events); $i++) {
+for ($i = 1; $i < count($events); $i++) {
     //Decide if you can attend an event
-    $go_to_events = [$events[0]];
-    $cur_event = ($events[0]);
+    if (Event::isConflict($cur_event, $events[$i])) {
+        //throw new Exception("conflicting Start and End Time");
+        echo "error" . $i;
 
-    if (Event::isConflict($cur_event, $events[$i]) == false) {
-        array_push($go_to_events);
-        print_r($go_to_events);
-    }
-    else {
-        throw new Exception("Conflicting Start and End Time");
+    } else {
+        array_push($current_event, $go_to_events);
+        $cur_event = $events[$i];
     }
 }
 
