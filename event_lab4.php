@@ -61,7 +61,6 @@ class Event{
         }
         else {
             return false;
-            //throw new Exception("Conflicting Start and End Time");
         }
     }
 }
