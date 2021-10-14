@@ -39,12 +39,6 @@ class Event{
     public function getName() { return $this->name;}
     public function setName($name) {$this->name = $name;}
 
-    public function getStart() { return $this->startTime;}
-    public function setStart($startTime) {$this-> startTime = $startTime;}
-
-    public function getEnd() { return $this->endTime;}
-    public function setEnd($endTime) {$this-> endTime = $endTime;}
-
     //Create setter and getter functions for startTime
     //and endTime: 0.5 point
     public function getStartTime() { return $this->startTime;}
@@ -61,7 +55,7 @@ class Event{
             order.
             return true is conflict, else return false
         */
-        if ($event2->getEndTime() > $event1->getStartTime()) {
+        if ($event1->getEndTime() > $event2->getStartTime()) {
             return true;
         }
         else {

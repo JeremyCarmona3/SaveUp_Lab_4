@@ -38,7 +38,7 @@ to make sure sorted sorrectly.
 */
 
 foreach($events as $x) {
-        echo $x->getName() . " : " . $x->getEndTime() . "\r\n";
+        echo $x->getName($x) . " : Start Time: " . date("H:i:s", $x->getStartTime($x)) . ", End Time: " . date("H:i:s", $x->getEndTime($x)) . "\r\n";
 }
 
 //Array that save all events that you will attend
@@ -52,13 +52,10 @@ $cur_event = ($events[0]);
 //3 points for implementaion of this function
 for ($i = 1; $i < count($events); $i++) {
     //Decide if you can attend an event
-    if (Event::isConflict($cur_event, $events[$i])) {
-        //throw new Exception("conflicting Start and End Time");
-        echo "error" . $i;
-
-    } else {
-        array_push($current_event, $go_to_events);
+    if (Event::isConflict($cur_event, $events[$i])== false) {
+        unset($cur_event);
         $cur_event = $events[$i];
+        array_push($go_to_events, $events[$i]);
     }
 }
 
