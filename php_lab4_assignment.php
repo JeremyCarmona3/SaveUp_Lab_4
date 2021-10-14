@@ -46,21 +46,20 @@ $go_to_events = array($events[0]);
 
 //What is the purpose of this statement?
 //1 point for expalnation. Put you explanation as comment
-//Your explanation:
+//Your explanation: To set the first event you will attend
 $cur_event = ($events[0]);
 
 //3 points for implementaion of this function
 for ($i = 1; $i < count($events); $i++) {
     //Decide if you can attend an event
-    $go_to_events = [$events[0]];
-    $cur_event = ($events[0]);
 
-    if (Event::isConflict($cur_event, $events[$i]) == false) {
-        array_push($go_to_events);
-        print_r($go_to_events);
+    if (Event::isConflict($cur_event, $events[$i])) {
+        
     }
     else {
-        throw new Exception("Conflicting Start and End Time");
+        unset($cur_event);
+        $cur_event = $events[$i];
+        array_push($go_to_events, $events[$i]);
     }
 }
 
